@@ -60,3 +60,13 @@ class Solution:
 
 
 
+
+
+class Solution:
+    def longestCommonPrefix(self, strs: list):
+        stts = ""
+        for i in strs[0]:
+            for j in strs:
+                if i in j:
+                    stts += i
+        return stts
