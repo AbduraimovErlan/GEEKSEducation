@@ -61,3 +61,75 @@ for obj in info:
 alex = Teacher('Алексей', '32', 'женат', 11)
 print(alex.per_salary())
 print(alex.__str__(introduce_myself=''))
+
+
+
+
+
+class Figure:
+    unit = 'sm'
+    def __init__(self):
+        self.__peremetr = 0
+
+    @property
+    def peremetr(self):
+        return self.__peremetr
+
+    @peremetr.setter
+    def peremetr(self, value):
+        self.__peremetr = value
+
+
+    def caculate_area(self):
+        pass
+
+    def calculate_perimeter(self):
+        pass
+
+    def info(self):
+        pass
+
+
+class Square(Figure):
+    def __init__(self, side_length):
+        super(Square, self).__init__()
+        self.__side_length = side_length
+        self.__peremetr = self.calculate_perimeter()
+
+    def calculate_perimeter(self):
+        return 4 * self.__side_length
+
+    def caculate_area(self):
+        return self.__side_length ** 2
+
+
+    def info(self):
+        return f'Square side length: {self.__side_length} {Figure.unit}, '\
+               f'perimeter: {self.__peremetr} {Figure.unit}, '\
+               f'area: {self.caculate_area()} {Figure.unit}. '
+
+
+class Rectangle(Figure):
+    def __init__(self, length, width):
+        super(Rectangle, self).__init__()
+        self.__width = width
+        self.__length = length
+        self.__peremetr = self.calculate_perimeter()
+
+
+    def calculate_perimeter(self):
+        return 2 * (self.__length + self.__width)
+
+    def caculate_area(self):
+        return self.__width * self.__length
+
+    def info(self):
+        return f'Rectangle length: {self.__length} {Figure.unit}, '\
+               f'width: {self.__width} {Figure.unit}, '\
+               f'perimetr: {self.__peremetr} {Figure.unit}, '\
+               f'area: {self.caculate_area()} {Figure.unit}'
+
+
+figure_list = [Square(3), Square(9), Rectangle(12, 5), Rectangle(6, 7), Rectangle(2, 4)]
+for i in figure_list:
+    print(i.info())
