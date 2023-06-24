@@ -133,3 +133,48 @@ class Rectangle(Figure):
 figure_list = [Square(3), Square(9), Rectangle(12, 5), Rectangle(6, 7), Rectangle(2, 4)]
 for i in figure_list:
     print(i.info())
+
+
+class Figures:
+    unit = 'mm'
+    def __init__(self):
+        pass
+
+    def calculate_area(self):
+        pass
+
+    def ingo(self):
+        pass
+
+class Circle(Figures):
+    pi = 'π'
+    def __init__(self, radius):
+        super(Circle, self).__init__()
+        self.__radius = radius
+
+    def calculate_area(self):
+        return self.__radius ** 2
+
+    def ingo(self):
+        return f'Circle radius: {self.__radius} {Figures.unit}, ' \
+               f'area: {self.calculate_area()}{Circle.pi} {Figure.unit}'
+
+
+class RightTriangle(Figure):
+    def __init__(self, side_a, side_b):
+        super(RightTriangle, self).__init__()
+        self.__side_a = side_a
+        self.__side_b = side_b
+
+    def caculate_area(self):
+        return round((self.__side_a * self.__side_b) / 2, 1)
+
+    def info(self):
+        return f'RightTriangle side a: {self.__side_a}{Figures.unit}, ' \
+               f'side b: {self.__side_b}{Figures.unit}, ' \
+               f'area: {self.caculate_area()}{Figures.unit}'
+
+
+figure2_list = [Circle(4), Circle(6), RightTriangle(2, 4), RightTriangle(6, 7), RightTriangle(5, 7)]
+for j in figure2_list:
+    print(j.ingo())
